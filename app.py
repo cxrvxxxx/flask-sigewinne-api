@@ -7,6 +7,13 @@ from flask import Flask, request, jsonify
 from flask_cors import CORS
 
 import google.generativeai as genai
+api_key = os.environ['API_KEY']
+if not os.path.exists('.env') or not api_key:
+    with open('.env', 'w') as f:
+        f.write('API_KEY=')
+
+    print("Check the .env file and add the API_KEY")
+    exit()
 genai.configure(api_key=os.environ['API_KEY'])
 
 app = Flask(__name__)
