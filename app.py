@@ -45,7 +45,7 @@ def ask() -> Response:
         is_valid = preprocess(query)
 
         if not is_valid:
-            message = "Please enter valid symptooms."
+            message = "Please enter valid symptoms."
         else:
             response = model.generate_content(base_prompt + query)
             message = response.text
